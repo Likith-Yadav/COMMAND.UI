@@ -16,6 +16,12 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ childre
   useEffect(() => {
     // Add theme class to body for global styling if needed
     document.body.className = `theme-${style}`;
+    
+    // Scroll to top when theme changes
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
   }, [style]);
 
   return (
