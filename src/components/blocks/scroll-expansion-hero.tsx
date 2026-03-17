@@ -4,6 +4,8 @@ import {
   useEffect,
   useRef,
   useState,
+} from 'react';
+import type {
   ReactNode,
   TouchEvent,
   WheelEvent,
