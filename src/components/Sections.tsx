@@ -288,13 +288,13 @@ export const BrandSection = () => {
           Ready to build <br className="hidden md:block" /> the future?
         </h2>
         
-        <div className="relative group mb-12 md:mb-16 cursor-crosshair w-full overflow-hidden md:overflow-visible">
+        <div className="relative group mb-12 md:mb-16 cursor-crosshair w-full overflow-hidden md:overflow-visible flex items-center justify-center">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className={cn(
-              "text-[4.5rem] sm:text-[7rem] md:text-[14rem] font-black tracking-tighter leading-none select-none transition-all duration-700 break-words",
+              "text-[12vw] md:text-[14rem] font-black tracking-tighter leading-none select-none transition-all duration-700 whitespace-nowrap",
               isDark ? "text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]" : "text-black drop-shadow-[0_0_30px_rgba(0,0,0,0.1)]"
             )}
           >
