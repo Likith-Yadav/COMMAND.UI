@@ -276,25 +276,25 @@ export const BrandSection = () => {
   const isDark = style === 'dark-modern' || style === 'neumorphism' || style === 'gradient-startup';
   
   return (
-    <section className="py-32 px-6 relative overflow-hidden flex flex-col items-center justify-center text-center">
+    <section className="py-16 md:py-32 px-6 relative overflow-hidden flex flex-col items-center justify-center text-center">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-4xl mx-auto"
+        className="max-w-4xl mx-auto w-full"
       >
         <span className="text-[10px] font-black uppercase tracking-[0.5em] opacity-30 mb-8 block">Final Destination</span>
-        <h2 className="text-4xl md:text-6xl font-black mb-12 uppercase tracking-tighter leading-[0.9]">
-          Ready to build <br /> the future?
+        <h2 className="text-3xl md:text-6xl font-black mb-8 md:mb-12 uppercase tracking-tighter leading-[0.9]">
+          Ready to build <br className="hidden md:block" /> the future?
         </h2>
         
-        <div className="relative group mb-16 cursor-crosshair">
+        <div className="relative group mb-12 md:mb-16 cursor-crosshair w-full overflow-hidden md:overflow-visible">
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
             className={cn(
-              "text-[8rem] md:text-[14rem] font-black tracking-tighter leading-none select-none transition-all duration-700",
+              "text-[4.5rem] sm:text-[7rem] md:text-[14rem] font-black tracking-tighter leading-none select-none transition-all duration-700 break-words",
               isDark ? "text-white drop-shadow-[0_0_30px_rgba(255,255,255,0.1)]" : "text-black drop-shadow-[0_0_30px_rgba(0,0,0,0.1)]"
             )}
           >
@@ -303,20 +303,26 @@ export const BrandSection = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent pointer-events-none" />
         </div>
 
-        <p className="text-lg font-bold opacity-40 uppercase tracking-[0.2em] mb-12 max-w-xl mx-auto">
+        <p className="text-sm md:text-lg font-bold opacity-40 uppercase tracking-[0.2em] mb-10 md:mb-12 max-w-xl mx-auto px-4">
           High-performance interface design for next-generation digital products.
         </p>
 
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className={cn(
-            "px-12 py-6 rounded-sm font-black uppercase tracking-[0.4em] text-[10px] transition-all shadow-2xl",
-            isDark ? "bg-white text-black" : "bg-black text-white"
-          )}
+        <a 
+          href="https://www.buildforu.pw/"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          Let's get in touch
-        </motion.button>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className={cn(
+              "px-8 md:px-12 py-5 md:py-6 rounded-sm font-black uppercase tracking-[0.4em] text-[10px] transition-all shadow-2xl",
+              isDark ? "bg-white text-black" : "bg-black text-white"
+            )}
+          >
+            Let's get in touch
+          </motion.button>
+        </a>
       </motion.div>
       
       {/* Decorative background elements */}
