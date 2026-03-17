@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-destructive-foreground: var(--destructive-foreground);
+  
+  --animate-aurora: aurora 60s linear infinite;
+
+  @keyframes aurora {
+    from { background-position: 50% 50%, 50% 50%; }
+    to { background-position: 350% 50%, 350% 50%; }
+  }
+}
+
+:root {
+  --background: oklch(1 0 0); /* Pure White */
+  --foreground: oklch(0 0 0); /* Pure Black */
+  --card: oklch(0.95 0 0 / 0.1);
+  --card-foreground: oklch(0 0 0);
+  --popover: oklch(1 0 0 / 0.8);
+  --popover-foreground: oklch(0 0 0);
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.65 0.25 25);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0 0 0 / 0.5);
+  --muted-foreground: oklch(0.3 0 0);
+  --accent: oklch(0.65 0.25 25);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6 0.25 15);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0 0 0 / 0.2);
+  --input: oklch(0 0 0 / 0.1);
+  --ring: oklch(0 0 0 / 0.3);
+  --chart-1: oklch(0.65 0.25 25);
+  --chart-2: oklch(0.8 0.15 85);
+  --chart-3: oklch(0.7 0.2 140);
+  --chart-4: oklch(0.7 0.2 240);
+  --chart-5: oklch(0.6 0.25 300);
+  --radius: 0.5rem;
+  --sidebar: oklch(1 0 0 / 0.9);
+  --sidebar-foreground: oklch(0 0 0);
+  --sidebar-primary: oklch(0.65 0.25 25);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.25 25);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(0 0 0 / 0.2);
+  --sidebar-ring: oklch(0 0 0 / 0.3);
+  --font-geist-sans: "Geist Sans", sans-serif;
+  --font-geist-mono: "Geist Mono", monospace;
+}
+
+.dark {
+  --background: oklch(0 0 0);
+  --foreground: oklch(1 0 0);
+  --card: oklch(0.1 0 0 / 0.1);
+  --card-foreground: oklch(1 0 0);
+  --popover: oklch(0 0 0 / 0.8);
+  --popover-foreground: oklch(1 0 0);
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --secondary: oklch(0.65 0.25 25);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(1 0 0 / 0.5);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.65 0.25 25);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.6 0.25 15);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 0.2);
+  --input: oklch(1 0 0 / 0.1);
+  --ring: oklch(1 0 0 / 0.3);
+  --chart-1: oklch(0.65 0.25 25);
+  --chart-2: oklch(0.8 0.15 85);
+  --chart-3: oklch(0.7 0.2 140);
+  --chart-4: oklch(0.7 0.2 240);
+  --chart-5: oklch(0.6 0.25 300);
+  --sidebar: oklch(0 0 0 / 0.9);
+  --sidebar-foreground: oklch(1 0 0);
+  --sidebar-primary: oklch(0.65 0.25 25);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.65 0.25 25);
+  --sidebar-accent-foreground: oklch(1 0 0);
+  --sidebar-border: oklch(1 0 0 / 0.2);
+  --sidebar-ring: oklch(1 0 0 / 0.3);
+}
+
+.style-minimalist {
+  --radius: 0px;
+  --theme-shadow: none;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+/* Glassmorphism Theme - White Glass Overhaul */
+.style-glassmorphism {
+  --radius: 2.5rem;
+  --theme-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  background: #fdfcff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.style-glassmorphism::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 90% 10%, rgba(244, 63, 94, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 90% 90%, rgba(168, 85, 247, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(251, 191, 36, 0.4) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.8) 0%, transparent 100%),
+    #ffffff;
+  z-index: -1;
+  filter: blur(60px);
+}
+
+/* Glass decorative blobs - Enhanced */
+.glass-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.8;
+  mix-blend-mode: multiply;
+  animation: mesh-float 25s infinite alternate ease-in-out;
+}
+
+@keyframes mesh-float {
+  0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+  33% { transform: translate(100px, -50px) rotate(120deg) scale(1.2); }
+  66% { transform: translate(-50px, 100px) rotate(240deg) scale(0.8); }
+  100% { transform: translate(20, 20) rotate(360deg) scale(1); }
+}
+
+.style-neumorphism {
+  --radius: 2.5rem;
+  --shadow: 15px 15px 30px #d1d5db, -15px -15px 30px #ffffff;
+  background: transparent !important;
+  color: black;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.style-dark-modern {
+  --radius: 0.5rem; /* Crisper radius */
+  --shadow: 0 20px 50px rgba(0,0,0,0.8);
+  background: transparent !important;
+  color: white;
+}
+
+.style-gradient-startup {
+  --radius: 0.5rem;
+  --shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
+  background: transparent !important;
+  color: white;
+}
+
+body {
+  margin: 0;
+  background-color: #030303; /* Default dark */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body:has(.style-neumorphism),
+body:has(.style-glassmorphism),
+body:has(.style-minimalist) {
+  background-color: #f0f2f5;
+}
+
+.theme-transition {
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Glassmorphism helpers - "Iridescent Glass" */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(25px) saturate(200%);
+  -webkit-backdrop-filter: blur(25px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 10px 40px -10px rgba(0, 0, 0, 0.1),
+    inset 0 0 15px rgba(255, 255, 255, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  position: relative;
+}
+
+.glass-effect::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.6) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  color: #000;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  border-color: #fff;
+}
+
+/* Neumorphism helpers - "Light Skeuomorphic" */
+.neu-inset {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: inset 8px 8px 16px #bebebe, inset -8px -8px 16px #ffffff;
+}
+
+.neu-button {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 10px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.neu-button:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 15px 15px 30px #b1b1b1, -15px -15px 30px #ffffff;
+  transform: translateY(-2px);
+  border-color: #ffffff;
+}
+
+.neu-button:active {
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+  transform: translateY(0);
+}
