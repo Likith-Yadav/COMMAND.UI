@@ -3,7 +3,7 @@
 import { Navbar } from './Navbar';
 import { ThemeSwitcher } from './ThemeSwitcher';
 import ScrollExpandMedia from './blocks/scroll-expansion-hero';
-import { AboutSection, PricingSection, ContactSection, Footer } from './Sections';
+import { AboutSection, PricingSection, ContactSection, BrandSection, Footer } from './Sections';
 import { useTheme } from '../context/ThemeContext';
 import { cn } from '../lib/utils';
 import { NavBar as TubelightNavBar } from './ui/tubelight-navbar';
@@ -130,6 +130,7 @@ export const LandingPage = () => {
             <section id="about" className="bg-transparent"><AboutSection /></section>
             <section id="pricing" className="bg-transparent"><PricingSection /></section>
             <section id="contact" className="bg-transparent"><ContactSection /></section>
+            <BrandSection />
             <Footer />
             
             <ThemeSwitcher />
